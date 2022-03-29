@@ -1,8 +1,27 @@
-using Grasshopper;
+using Grasshopper.Kernel.Attributes;
+using Grasshopper.GUI.Canvas;
+using Grasshopper.GUI;
 using Grasshopper.Kernel;
-using Rhino.Geometry;
 using System;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Collections.Generic;
+using Rhino.Display;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+
+using Rhino;
+using Rhino.Geometry;
+
+using Grasshopper;
+using Grasshopper.Kernel.Data;
+using Grasshopper.Kernel.Types;
+
+using GH_IO;
+using GH_IO.Serialization;
 
 namespace Increment
 {
@@ -94,6 +113,9 @@ namespace Increment
             if (doc != null)
 
                 doc.ScheduleSolution(1, ScheduleCallback);
+
+            RhinoApp.WriteLine("currentValue = {0}", currentValue.ToString());
+
             DA.SetData(0, currentValue);
 
             //this.ExpireSolution(false);
